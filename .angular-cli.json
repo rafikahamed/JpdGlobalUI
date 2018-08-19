@@ -1,0 +1,50 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "hms"
+    },
+    "apps": [{
+        "root": "src",
+        "outDir": "dist",
+        "assets": [
+            "assets",
+            "favicon.png"
+        ],
+        "index": "index.html",
+        "main": "main.ts",
+        "polyfills": "polyfills.ts",
+        "test": "test.ts",
+        "tsconfig": "tsconfig.hms.json",
+        "prefix": "hms",
+        "styles": [
+            "../vendor/bootstrap/css/bootstrap.min.css",
+            "../vendor/font-awesome/css/font-awesome.min.css",
+            "../vendor/animate/animate.css",
+            "../vendor/css-hamburgers/hamburgers.min.css",
+            "../vendor/iconic/css/material-design-iconic-font.min.css",
+            "styles.css"
+        ],
+        "scripts": [
+            "../vendor/jquery/jquery.min.js",
+            "../node_modules/jquery-ui-dist/jquery-ui.js",
+            "../vendor/bootstrap/js/bootstrap.bundle.min.js",
+            "../vendor/jquery-easing/jquery.easing.min.js",
+            "../vendor/bootstrap/js/popper.js",
+            "../vendor/magnific-popup/jquery.magnific-popup.min.js",
+            "../vendor/bootstrap/js/bootstrap.min.js"
+        ],
+        "environmentSource": "environments/environment.ts",
+        "environments": {
+            "dev": "environments/environment.ts",
+            "prod": "environments/environment.prod.ts"
+        }
+    }],
+    "defaults": {
+        "styleExt": "css",
+        "serve": {
+            "host": "0.0.0.0",
+            "port": 4000
+        },
+        "component": {}
+    }
+}

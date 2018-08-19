@@ -1,0 +1,52 @@
+.arn-heading{
+    font-size: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.arn-blog{
+    padding: 50px 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    background: white;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 6px 0px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 6px 0px;
+    border-radius: 10px;
+    height: 400px;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+    margin: 30px 20px;
+}
+
+.arn-wrap{
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.arn-admin{
+    background-image: url(../../../assets/img/admin.png); 
+    cursor:pointer; 
+    height:150px; 
+    width:160px;
+    margin: auto;
+}
+
+.arn-client{
+    background-image: url(../../../assets/img/client.png); 
+    cursor: pointer;
+    height: 150px;
+    width: 160px;
+    margin: auto;
+}
+
+.login-text{
+    margin-top:15px; 
+    font-size:23px; 
+}
+
+.arn-blog:hover {
+    background: #ccc;
+}
