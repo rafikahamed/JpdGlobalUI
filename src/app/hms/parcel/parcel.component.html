@@ -1,6 +1,4 @@
-
-
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav"> 
                 <div class="container">
                     <a class="navbar-brand" href="index.html" style="font-size:30px; font-weight: 600; font-family: -webkit-pictograph;"> 
@@ -15,12 +13,6 @@
                       <li class="nav-item">
                         <a class="nav-link" routerLink="/home" routerLinkActive="active" style="font-size: 14px;">HOME</a>
                       </li>
-                      <!-- <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                      </li> -->
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" 
                             style="font-size: 14px;"
@@ -28,10 +20,10 @@
                           SERVICES
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                          <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active">BAS SERVICES</a>
-                          <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active">FREIGHT MANAGEMENT SYSTEM </a>
-                          <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active">REVERSE LOGISTICS</a>
-                          <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active">BONDED DEPOT SERVICES</a>
+                          <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active" style="font-size: 13px">GST SERVICES</a>
+                          <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active" style="font-size: 13px">FREIGHT MANAGEMENT SYSTEM </a>
+                          <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active" style="font-size: 13px">REVERSE LOGISTICS</a>
+                          <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active" style="font-size: 13px">BONDED DEPOT SERVICES</a>
                         </div>
                       </li>
                       <li class="nav-item">
@@ -43,11 +35,17 @@
                           RESOURCES
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                            <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 14px;">
+                            <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 13px;">
                               AUSTRALIAN GST CHANGES
                             </a>
-                            <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 14px;">
+                            <a class="dropdown-item" routerLink="/resource-article" routerLinkActive="active" style="font-size: 13px;">
+                              AUSTRALIAN GST UPDATE
+                            </a>
+                            <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 13px;">
                               TERMS AND CONDITION
+                            </a>
+                            <a class="dropdown-item" routerLink="/resource-policy" routerLinkActive="active" style="font-size: 13px;">
+                              PRIVACY POLICY
                             </a>
                         </div>
                       </li>
@@ -57,36 +55,30 @@
                       <li class="nav-item">
                           <a class="nav-link" routerLink="/about" routerLinkActive="active" style="font-size: 13px;">ABOUT US</a>
                       </li>
+        
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active" style="font-size: 13px;">LOGIN & SIGNUP</a>
+                      </li>
+        
                     </ul>
                   </div>
                 </div>
     </nav>
-
+    
     <!-- Page Content -->
     <div class="container" style="margin-top:20px">
 
-      <ol class="breadcrumb">
-           <li class="breadcrumb-item">
-                <a href="index.html">HOME</a>
-           </li>
-           <li class="breadcrumb-item">
-                <a routerLink="/services" routerLinkActive="active">SERVICES</a>
-           </li>
-                <li class="breadcrumb-item active"> BAS SERVICES</li>
-      </ol>
+                <ngx-spinner
+		        bdColor="rgba(51,51,51,0.8)"
+			size="medium"
+			color="#fff"
+			loadingText="Loading..."
+			type="ball-circus">
+		</ngx-spinner>
 
-                                        <ngx-spinner
-						bdColor="rgba(51,51,51,0.8)"
-						size="medium"
-						color="#fff"
-						loadingText="Loading..."
-						type="ball-circus">
-					</ngx-spinner>
-
-      <div style="height: 190px;">
-                <!-- <marquee behavior="alternate" style="color: darkgreen;">*Conversion Rate Last Updated Time</marquee> -->
+      <div style="height: 190px; margin-top: 80px;">
                 <div>
-                   <div class="info-text">*Supported currencies - usd, cny, jpy, rur, krw, sgd, nzd, gbp, myr, thb, idr, inr, twd, vnd, hkd, pgk, chf, aed, cad, aud </div>
+                   <div class="info-text"> Company Name : {{companyName}} </div>
                    <div class="info-text">*Conversion Rate Last Updated Time : {{currencyUpdatedTime}}</div>     
                 </div>
                 <div class="content-info"> 
@@ -97,10 +89,6 @@
                         <div style="float: clear">
                                 <label style="float:left"> Access : </label>
                                 <label style="margin-left: 10px;"> {{access}} </label>
-                        </div>
-                        <div style="float: clear">
-                                        <label style="float:left"> Company Name : </label>
-                                        <label style="margin-left: 10px;"> {{companyName}} </label>
                         </div>
                         <div style="float: clear">
                                         <label style="float:left"> User Code (ARN) : </label>
@@ -138,10 +126,10 @@
                                                     style="color: darkgreen; font-size:18px;" download>
                                                            **Please click here to download the template for file Import/Export 
                                                 </a>
-                                        </div>
+                                            </div>
                                                 <div style="padding: 20px;">
                                                         <input type="file" style="display: inline-block;" (change)="incomingfile($event)" 
-                                                                        placeholder="Upload file" accept=".xlsx">
+                                                                        placeholder="Upload file" accept=".xls,.xlsx">
                                                         <button type="button" class="btn btn-info" (click)="Import()" 
                                                                 style="background-color: #0671b7;">Upload</button>
                         
@@ -155,7 +143,7 @@
                                                         </div>
                         
                                                         <div style="margin-top: 20px;"> 
-                                                        <mat-progress-bar mode="determinate" value= "100"></mat-progress-bar>
+                                                                <mat-progress-bar mode="determinate" value= "100"></mat-progress-bar>
                                                         </div>
                         
                                                         <div class="table-wrap">
@@ -180,16 +168,16 @@
                                                                                         <td>{{file.user_code}}</td>
                                                                                         <td>{{file.GST_eligible}}</td>
                                                                                         <td>{{file.reference_no}}</td>
-                                                                                        <td>{{file.amount}}</td>  
+                                                                                        <td>{{file.amount}}</td> 
                                                                                         <td>{{file.currency_code}}</td> 
                                                                                         <td>{{file.aud_converted_value}}</td>
                                                                                         <td>{{file.report_indicator}}</td>
                                                                                         <td>{{file.gst_payable}}</td>   
-                                                                                        <td>{{file.arrival_date}}</td>                                                     
+                                                                                        <td>{{file.arrival_date}}</td>                                               
                                                                                 </tr>
                                                                         </tbody>
                                                         </table>
-                                                </div>
+                                                        </div>
                                         </div>
                                 </mat-tab>
                                 <mat-tab label="Upload File - Export Parcel">
@@ -202,7 +190,7 @@
                                                 </div>
 
                                                 <div style="padding: 20px">
-                                                <input type="file" style="display:inline-block" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+                                                <input type="file" style="display:inline-block" (change)="incomingfile($event)" placeholder="Upload file" accept=".xls,.xlsx">
                                                         <button type="button" class="btn btn-info" 
                                                                         style="background-color: #0671b7" (click)="Export()" >Upload</button>
                                                         
@@ -256,7 +244,7 @@
                                         
                            <mat-tab *ngIf="downLoadFlag" label="Download Report">
                                         <div style="height: 630px;">
-                                                <div style="padding: 30px;">
+                                                <div style="padding:20px">
                                                                 <div style="font-weight: 500;"> 
                                                                         Please select the below Option to download the report :</div>
                                                 </div>
@@ -288,9 +276,20 @@
                                                                                 Download as CSV
                                                                 </button>         
                                                         </div>
+                                                        
+                                                       
                                                 </div>
 
-                                                <div class="table-wrap-upload" style="margin-top:100px">
+                                                <div style="padding: 10px"> 
+                                                        <mat-progress-bar mode="determinate" value= "100"></mat-progress-bar>
+                                                </div>
+
+                                                <div style="margin-top: 20px">
+                                                        <p style="color: #ca2929; font-size:16px; font-weight:500; margin-left:15px">
+                                                                           {{downloadErrorMsg}}</p>
+                                                </div>
+
+                                                <div class="table-wrap-upload" style="padding: 10px">
                                                                 <table style="width: 100%; position: absolute; border: 1px solid #ccc; margin-top:95;">
                                                                             <thead>
                                                                                     <tr>
@@ -308,16 +307,16 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                     <tr *ngFor="let file of downloadData;let i = index">
-                                                                                            <td>{{i+1}}</td>
-                                                                                            <td>{{file.userCode}}</td>
-                                                                                            <td>{{file.gst_eligible}}</td>
-                                                                                            <td>{{file.referenceNo}}</td>
-                                                                                            <td>{{file.amount}}</td>
-                                                                                            <td>{{file.currencyCode}}</td>   
-                                                                                            <td>{{file.audConvertedAmount}}</td>
-                                                                                            <td>{{file.reportIndicator}}</td>
-                                                                                            <td>{{file.gst_payable}}</td>   
-                                                                                            <td>{{file.saleDate}}</td>                                                     
+                                                                                                <td>{{i+1}}</td>
+                                                                                                <td>{{file.userCode}}</td>
+                                                                                                <td>{{file.gstEligible}}</td>
+                                                                                                <td>{{file.referenceNo}}</td>
+                                                                                                <td>{{file.amount}}</td> 
+                                                                                                <td>{{file.currencyCode}}</td> 
+                                                                                                <td>{{file.audConvertedAmount}}</td>
+                                                                                                <td>{{file.reportIndicator}}</td>
+                                                                                                <td>{{file.gstPayable}}</td>   
+                                                                                                <td>{{file.saleDate}}</td>                                                 
                                                                                     </tr>
                                                                             </tbody>
                                                                 </table>

@@ -1,17 +1,16 @@
-import { Component, ElementRef, ViewChild, OnInit, Injectable, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, Injectable} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import * as XLSX from 'xlsx';
 import { AdminService } from 'app/hms/service/admin.service';
-import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 declare var $: any;
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 
 @Component({
   selector: 'hms-home',
   templateUrl: './arn-register-admin.component.html',
-  styleUrls: ['./arn-register-admin.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./arn-register-admin.component.css']
 })
 export class ArnRegistrationAdminComponent implements OnInit{
 
@@ -33,6 +32,7 @@ export class ArnRegistrationAdminComponent implements OnInit{
       legalNameFlag: boolean = true;
       legalNameSelctFlag: boolean = false;
       companyDetails = [];
+      adminDetails=[];
 
       constructor(
         private spinner: NgxSpinnerService,
@@ -74,6 +74,7 @@ export class ArnRegistrationAdminComponent implements OnInit{
     this.successMsg = null;
     this.fileData = null;
     let fileReader = new FileReader();
+    console.log(this.arnFile)
     fileReader.readAsArrayBuffer(this.arnFile);
     fileReader.onload = (e) => {
           this.arrayBuffer = fileReader.result;
@@ -103,7 +104,7 @@ export class ArnRegistrationAdminComponent implements OnInit{
                 this.fileData = resp;
                 this.successMsg = resp[0].message;
               }
-              this.spinner.hide();
+             this.spinner.hide();
             });
           }
           setTimeout(() => {
@@ -112,9 +113,45 @@ export class ArnRegistrationAdminComponent implements OnInit{
     }
   }
 
-  downLoad(){
-    console.log("Download ARN Details")
-  }
+  adminDownLoad(){
+    this.spinner.show();
+    var currentTime = new Date();
+    var fileName = '';
+    this.adminservice.adminDownLoad( (resp) => {
+      this.adminDetails = resp;
+      this.spinner.hide();
+      fileName = "Admin-GST-report"+"-"+currentTime.toLocaleDateString();
+      var options = { 
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalseparator: '.',
+        showLabels: true, 
+        useBom: true,
+        headers: ['User Code','Company Name', 'Total GST Payable (AUD)', 'Total Sales (AUD)', 'GST Excluded Sales (AUD)' ]
+      };
+
+      var adminList = [];
+      let User_Code = 'User_Code';
+      let Company_Name = 'Company_Name';
+      let Total_gst = 'Total_gst';
+      let Total_sale = 'Total_sale';
+      let Total_exclude = 'Total_exclude';
+  
+      for (var adminVal in this.adminDetails) {
+          var adminObj = this.adminDetails[adminVal];
+          var arnObj = (
+              arnObj={}, 
+              arnObj[User_Code]= adminObj.user_code, arnObj,
+              arnObj[Company_Name]= adminObj.company_name, arnObj,
+              arnObj[Total_gst]= adminObj.gst_payable, arnObj,
+              arnObj[Total_sale]= adminObj.total_sales_in_AUD, arnObj,
+              arnObj[Total_exclude]= adminObj.total_GST_Exclude_sales_in_AUD, arnObj
+          );
+          adminList.push(arnObj)
+      }
+     new Angular2Csv(adminList, fileName, options); 
+    });
+  } 
 
   onSelectChange(val){
     if(val.index == 1){
@@ -305,3 +342,10 @@ export interface userMessage {
     companyName,
     userCode
   }
+
+export interface adminDetails{
+  company_name,
+  gst_payable,
+  amount,
+  gst_exclude
+}

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, Injectable, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, Injectable} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
@@ -10,7 +10,6 @@ declare var $: any;
 @Component({
   selector: 'hms-login',
   templateUrl: './login.component.html',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{

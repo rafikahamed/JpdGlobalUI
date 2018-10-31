@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { UserIdleModule } from 'angular-user-idle';
 import { UiModule } from 'app/ui/ui.module';
 import { HmsComponent } from 'app/hms/hms.component';
-import { HomeComponent } from 'app/hms/hospitalhome/home.component';
+import { HomeComponent } from 'app/hms/home/home.component';
 import { LoginComponent } from 'app/hms/login/login.component';
 import { SignUpComponent }from 'app/hms/signup/signup.component';
 import { SignUpService } from 'app/hms/service/signUp.service';
@@ -30,6 +30,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ArnRegistrationComponent } from './arn-register/arn-register.component';
 import { ArnRegistrationAdminComponent } from './arn-register-admin/arn-register-admin.component';
 import { ArnRegistrationUserComponent } from './arn-register-user/arn-register-user.component';
+import { PolicyComponent } from './policy/policy.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   imports: [
@@ -58,7 +60,9 @@ import { ArnRegistrationUserComponent } from './arn-register-user/arn-register-u
           { path: "jpd/arn-registration", component: ArnRegistrationComponent},
           { path: "arn-registration/admin", component: ArnRegistrationAdminComponent},
           { path: "arn-registration/user", component: ArnRegistrationUserComponent},
-          { path: "resource-termsAndServices", component: TermsServiceComponent}
+          { path: "resource-termsAndServices", component: TermsServiceComponent},
+          { path: "resource-policy", component: PolicyComponent},
+          { path: "resource-article", component: ArticleComponent}
     ], { useHash: true }),
     UiModule
   ],
@@ -80,7 +84,9 @@ import { ArnRegistrationUserComponent } from './arn-register-user/arn-register-u
     ArnRegistrationComponent,
     ArnRegistrationAdminComponent,
     ArnRegistrationUserComponent,
-    TermsServiceComponent
+    TermsServiceComponent,
+    PolicyComponent,
+    ArticleComponent
   ],
   entryComponents: [
     

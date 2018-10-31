@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, Injectable, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, Injectable} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ParcelService } from 'app/hms/service/parcel.service';
@@ -11,8 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'hms-parcel',
   templateUrl: './parcel.component.html',
-  styleUrls: ['./parcel.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./parcel.component.css']
 })
 
 export class ParcelComponent implements OnInit{
@@ -20,6 +19,7 @@ export class ParcelComponent implements OnInit{
   errorMsg: string;
   successMsg: String;
   exportSuccessMsg: String;
+  downloadErrorMsg: String;
   exportErrorMsg: String;
   arrayBuffer:any;
   file:File;
@@ -100,7 +100,6 @@ export class ParcelComponent implements OnInit{
   }
 
   getLoginDetails(){
-    console.log(this.parcelservice.userMessage )
     if(this.parcelservice.userMessage != undefined){
       this.userDetails = this.parcelservice.userMessage;
       this.userName = this.parcelservice.userMessage.userName;
@@ -124,38 +123,54 @@ export class ParcelComponent implements OnInit{
     }
   }
 
-  
-
   downLoad(){
     this.spinner.show();
     var currentTime = new Date();
     var fileName = '';
+    this.downloadErrorMsg ='';
     var downloadList = [];
-    this.parcelservice.downLoad(this.time, this.fileType, (resp) => {
+    var timePeriod = '';
+    if(this.time == 'Q1 – Jul 1st to Sep 30th')
+        timePeriod = '3';
+    else if(this.time == 'Q2 – Oct 1st to Dec 31st')
+        timePeriod = '4';
+    else if(this.time == 'Q3 – Jan 1st to Mar 31st')
+        timePeriod = '1';
+    else if(this.time == 'Q4 – Apr 1st to Jun 30th')
+        timePeriod = '2';
+    this.parcelservice.downLoad(timePeriod, this.fileType, (resp) => {
       this.downloadData = resp;
-      fileName = this.downloadData[0].username+"-"+currentTime.toLocaleDateString();
-      var options = { 
-        fieldSeparator: ',',
-        quoteStrings: '"',
-        decimalseparator: '.',
-        showLabels: true, 
-        useBom: true,
-        headers: ['Amount', 'Sale Date', 'Aud Converted Amount', 'Currency Code', 'File Name', 'Reference Number', 'Report-Indicator',
-                  'Uploaded-Date','User-code', 'User-Name', 'GST-Eligible', 'GST-Payable']
-      };
-      this.spinner.hide();
-      for (var downloadVal in resp) {
-        var downloadObj = resp[downloadVal];
-        delete downloadObj['id'];
-        delete downloadObj['txnDate'];
-        downloadList.push(downloadObj)
+      if(this.downloadData.length >0){
+        fileName = this.downloadData[0].username+"-"+currentTime.toLocaleDateString();
+        var options = { 
+          fieldSeparator: ',',
+          quoteStrings: '"',
+          decimalseparator: '.',
+          showLabels: true, 
+          useBom: true,
+          headers: ['Amount', 'Aud Converted Amount', 'Currency Code', 'File Name', 'GST-Eligible', 'GST-Payable', 
+                    'Reference Number', 'Report-Indicator', 'Sale Date',
+                    'Uploaded-Date','User-code', 'User-Name' ]
+        };
+        this.spinner.hide();
+        for (var downloadVal in resp) {
+          var downloadObj = resp[downloadVal];
+          delete downloadObj['id'];
+          delete downloadObj['txnDate'];
+          downloadList.push(downloadObj)
+        }
+        new Angular2Csv(downloadList, fileName, options);
+      }else{
+        this.spinner.hide();
+        this.downloadErrorMsg="*No recored found for given Quater"
       }
-      new Angular2Csv(downloadList, fileName, options);
+      
     })
   }
 
   Import() {
     var worksheet;
+    var currentTime = new Date();
     this.importSumValue = null;
     this.errorMsg = null;
     this.successMsg = null;
@@ -192,7 +207,6 @@ export class ParcelComponent implements OnInit{
                   }
 
                   if(importKey === 'GST Eligible'){
-                    console.log(importObj[importKey]);
                     if( !(importObj[importKey].toUpperCase() === 'Y' || importObj[importKey].toUpperCase() === 'N')){
                       this.errorMsg = "***Invalid input code – Please enter “Y” or “N” or “Blank”"
                       break;
@@ -217,10 +231,31 @@ export class ParcelComponent implements OnInit{
                   }
               }
           }
+          var today = new Date();
+          var day = today.getDate() + "";
+          var month = (today.getMonth() + 1) + "";
+          var year = today.getFullYear() + "";
+          var hour = today.getHours() + "";
+          var minutes = today.getMinutes() + "";
+          var seconds = today.getSeconds() + "";
+
+          day = checkZero(day);
+          month = checkZero(month);
+          year = checkZero(year);
+          hour = checkZero(hour);
+          minutes = checkZero(minutes);
+          seconds = checkZero(seconds);
+
+          function checkZero(data){
+            if(data.length == 1){
+              data = "0" + data;
+            }
+            return data;
+          }
+          var dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds;
           if( this.errorMsg == null ){
             this.spinner.show();
-            this.parcelservice.importService(XLSX.utils.sheet_to_json(worksheet), this.file.name ,(resp) => {
-              console.log(resp);
+            this.parcelservice.importService(XLSX.utils.sheet_to_json(worksheet), this.file.name+"-"+dateString,(resp) => {
               if( resp[0].errMessage != null){
                 this.errorMsg = resp[0].errMessage;
               }else{
@@ -233,11 +268,7 @@ export class ParcelComponent implements OnInit{
               }
               this.spinner.hide();
             });
-          }
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 10000);
-     
+          };
     }
 }
 
@@ -274,7 +305,7 @@ export class ParcelComponent implements OnInit{
                   var rxDatePattern = /^([012]?\d|3[01])-([Jj][Aa][Nn]|[Ff][Ee][bB]|[Mm][Aa][Rr]|[Aa][Pp][Rr]|[Mm][Aa][Yy]|[Jj][Uu][Nn]|[Jj][u]l|[aA][Uu][gG]|[Ss][eE][pP]|[oO][Cc]|[Nn][oO][Vv]|[Dd][Ee][Cc])-(19|20)\d\d$/;
                   if(!importObj[importKey].match(rxDatePattern)){
                     console.log("Not Matching the date format")
-                    this.exportErrorMsg = "***Invalid Sale Date – Please enter the valid date format - MM/DD/YYYY"
+                    this.exportErrorMsg = "***Invalid Sale Date – Please enter the valid date format DD-MMM-YYYY"
                     break;
                   }
                 }
@@ -305,9 +336,31 @@ export class ParcelComponent implements OnInit{
 
               }
           }
+          var today = new Date();
+          var day = today.getDate() + "";
+          var month = (today.getMonth() + 1) + "";
+          var year = today.getFullYear() + "";
+          var hour = today.getHours() + "";
+          var minutes = today.getMinutes() + "";
+          var seconds = today.getSeconds() + "";
+
+          day = checkZero(day);
+          month = checkZero(month);
+          year = checkZero(year);
+          hour = checkZero(hour);
+          minutes = checkZero(minutes);
+          seconds = checkZero(seconds);
+
+          function checkZero(data){
+            if(data.length == 1){
+              data = "0" + data;
+            }
+            return data;
+          }
+          var dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds;
           if(this.exportErrorMsg == null){
             this.spinner.show();
-            this.parcelservice.exportService(XLSX.utils.sheet_to_json(worksheet), this.file.name, (resp) => {
+            this.parcelservice.exportService(XLSX.utils.sheet_to_json(worksheet), this.file.name+"-"+dateString, (resp) => {
               console.log(resp)
               if( resp[0].errMessage != null){
                 this.exportErrorMsg = resp[0].errMessage;
@@ -322,13 +375,7 @@ export class ParcelComponent implements OnInit{
               this.spinner.hide();
             });
           }
-
-          setTimeout(() => {
-            /** spinner ends after 15 seconds */
-            this.spinner.hide();
-          }, 10000);
       }
-     
   }
 
 }

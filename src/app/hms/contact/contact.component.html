@@ -14,12 +14,6 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/home" routerLinkActive="active" style="font-size: 14px;">HOME</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" 
                   style="font-size: 14px;"
@@ -27,10 +21,10 @@
                 SERVICES
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active">BAS SERVICES</a>
-                <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active">FREIGHT MANAGEMENT SYSTEM </a>
-                <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active">REVERSE LOGISTICS</a>
-                <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active">BONDED DEPOT SERVICES</a>
+                <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active" style="font-size: 13px">GST SERVICES</a>
+                <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active" style="font-size: 13px">FREIGHT MANAGEMENT SYSTEM </a>
+                <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active" style="font-size: 13px">REVERSE LOGISTICS</a>
+                <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active" style="font-size: 13px">BONDED DEPOT SERVICES</a>
               </div>
             </li>
             <li class="nav-item">
@@ -42,11 +36,17 @@
                 RESOURCES
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                  <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 14px;">
+                  <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 13px;">
                     AUSTRALIAN GST CHANGES
                   </a>
-                  <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 14px;">
+                  <a class="dropdown-item" routerLink="/resource-article" routerLinkActive="active" style="font-size: 13px;">
+                    AUSTRALIAN GST UPDATE
+                  </a>
+                  <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 13px;">
                     TERMS AND CONDITION
+                  </a>
+                  <a class="dropdown-item" routerLink="/resource-policy" routerLinkActive="active" style="font-size: 13px;">
+                    PRIVACY POLICY
                   </a>
               </div>
             </li>
@@ -56,12 +56,17 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/about" routerLinkActive="active" style="font-size: 13px;">ABOUT US</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active" style="font-size: 13px;">LOGIN & SIGNUP</a>
+            </li>
+
           </ul>
         </div>
       </div>
-   </nav>
+  </nav>
 
-    <!-- Page Content -->
+     <!-- Page Content -->
     <div class="container" style="margin-top: 70px">
 
       <!-- Page Heading/Breadcrumbs -->
@@ -86,16 +91,18 @@
         <div class="col-lg-4 mb-4">
           <h4 >Contact Details</h4>
           <p>
-                Dwayne or Chris
-            <br>Beverly Hills, CA 90210
-            <br>
+              <br>Ground Floor, Suite 3
+              <br>410 Church Street
+              <br> North Parramatta
+              <br> NSW - 2151
+            <br> 
           </p>
           <p>
-            <abbr title="Phone">P</abbr>: 0470 271 180​
+            <abbr title="Phone">P</abbr>: 0418 485 545
           </p>
           <p>
             <abbr title="Email">E</abbr>:
-            <a href="mailto:chris@jpdglobal.com.au">chris@jpdglobal.com.au
+            <a href="mailto:gst@jpdglobal.com.au">gst@jpdglobal.com.au
             </a>
           </p>
           <p>
@@ -137,7 +144,6 @@
               </div>
             </div>
             <div id="success"></div>
-            <!-- For success/fail messages -->
             <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
           </form>
         </div>

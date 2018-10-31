@@ -24,12 +24,6 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/home" routerLinkActive="active" style="font-size: 14px;">HOME</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="services.html">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" 
                     style="font-size: 14px;"
@@ -37,10 +31,10 @@
                   SERVICES
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active">BAS SERVICES</a>
-                  <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active">FREIGHT MANAGEMENT SYSTEM </a>
-                  <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active">REVERSE LOGISTICS</a>
-                  <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active">BONDED DEPOT SERVICES</a>
+                  <a class="dropdown-item" routerLink="/bas-services" routerLinkActive="active" style="font-size: 13px">GST SERVICES</a>
+                  <a class="dropdown-item" routerLink="/fright-services" routerLinkActive="active" style="font-size: 13px">FREIGHT MANAGEMENT SYSTEM </a>
+                  <a class="dropdown-item" routerLink="/reverse-services" routerLinkActive="active" style="font-size: 13px">REVERSE LOGISTICS</a>
+                  <a class="dropdown-item" routerLink="/depot-services" routerLinkActive="active" style="font-size: 13px">BONDED DEPOT SERVICES</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -52,11 +46,17 @@
                   RESOURCES
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                    <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 14px;">
+                    <a class="dropdown-item" routerLink="/resource-gst" routerLinkActive="active" style="font-size: 13px;">
                       AUSTRALIAN GST CHANGES
                     </a>
-                    <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 14px;">
+                    <a class="dropdown-item" routerLink="/resource-article" routerLinkActive="active" style="font-size: 13px;">
+                      AUSTRALIAN GST UPDATE
+                    </a>
+                    <a class="dropdown-item" routerLink="/resource-termsAndServices" routerLinkActive="active" style="font-size: 13px;">
                       TERMS AND CONDITION
+                    </a>
+                    <a class="dropdown-item" routerLink="/resource-policy" routerLinkActive="active" style="font-size: 13px;">
+                      PRIVACY POLICY
                     </a>
                 </div>
               </li>
@@ -66,63 +66,61 @@
               <li class="nav-item">
                   <a class="nav-link" routerLink="/about" routerLinkActive="active" style="font-size: 13px;">ABOUT US</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active" style="font-size: 13px;">LOGIN & SIGNUP</a>
+              </li>
+
             </ul>
           </div>
         </div>
     </nav>
     
     <header style="margin-top: -62px;">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" >
-
-          </li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1">
-
-          </li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2">
-
-          </li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3">
-
-          </li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url(../../../assets/img/gst.jpg); cursor:pointer" routerLink="/bas-services" routerLinkActive="active">
-            <div class="carousel-caption d-none d-md-block" id="intro">
-                <h1 class="h1-home" style="margin-left: 810px; color:white">GST SERVICES</h1>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url(../../../assets/img/gst.jpg); cursor:pointer" routerLink="/bas-services" routerLinkActive="active">
+              <div class="carousel-caption d-none d-md-block" id="intro">
+                  <h1 class="h1-home" style="margin-left: 810px; color:white">GST SERVICES</h1>
+              </div>
             </div>
-          </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url(../../../assets/img/Logistics-1.jpg); cursor:pointer" routerLink="/fright-services" routerLinkActive="active">
-            <div class="carousel-caption d-none d-md-block">
-                <h1 class="h1-home" style="color: white !important; margin-left: 675px;
-                font-size:40px;">FREIGHT MANAGEMENT</h1>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url(../../../assets/img/Logistics-1.jpg); cursor:pointer" routerLink="/fright-services" routerLinkActive="active">
+              <div class="carousel-caption d-none d-md-block">
+                  <h1 class="h1-home" style="color: white !important; margin-left: 675px;
+                  font-size:40px;">FREIGHT MANAGEMENT</h1>
+              </div>
             </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url(../../../assets/img/Logistics-107.png); cursor:pointer" routerLink="/reverse-services" routerLinkActive="active">
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="h1-home" style="color: white; margin-top:-130px">REVERSE LOGISTICS </h1>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url(../../../assets/img/Logistics-107.png); cursor:pointer" routerLink="/reverse-services" routerLinkActive="active">
+              <div class="carousel-caption d-none d-md-block">
+                <h1 class="h1-home" style="color: white">REVERSE LOGISTICS </h1>
+              </div>
             </div>
-          </div>
-          <div class="carousel-item" style="background-image: url(../../../assets/img/depo.jpg); cursor:pointer" routerLink="/depot-services" routerLinkActive="active">
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="h1-home" style="margin-left: 850px; margin-top:-130px">BONDED DEPOT</h1>
+  
+            <div class="carousel-item" style="background-image: url(../../../assets/img/depo.jpg); cursor:pointer" routerLink="/depot-services" routerLinkActive="active">
+              <div class="carousel-caption d-none d-md-block">
+               <h1 class="h1-home" style="float:left; color:white; margin-bottom:-50px !important; height:90%">BONDED DEPOT</h1>
+              </div>
             </div>
+           
           </div>
-         
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
     </header>
 
     <!-- Page Content -->

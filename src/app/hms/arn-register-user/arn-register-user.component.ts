@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,8 +9,7 @@ declare var $: any;
 @Component({
   selector: 'hms-home',
   templateUrl: './arn-register-user.component.html',
-  styleUrls: ['./arn-register-user.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./arn-register-user.component.css']
 })
 
 export class ArnRegistrationUserComponent implements OnInit{

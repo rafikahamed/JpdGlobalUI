@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, Injectable, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, Injectable} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SignUpService } from 'app/hms/service/signUp.service';
 import { Router } from '@angular/router';
@@ -10,8 +10,7 @@ declare var $: any;
 @Component({
   selector: 'hms-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./signup.component.css']
 })
 
 export class SignUpComponent implements OnInit{

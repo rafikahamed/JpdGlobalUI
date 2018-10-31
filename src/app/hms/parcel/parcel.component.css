@@ -1,10 +1,4 @@
-/*!
- * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
- */
-
- body {
+body {
   padding-top: 54px;
 }
 
@@ -32,7 +26,6 @@
   margin-top: -30px;
 }
 
-
 #mainNav {
   border-bottom: 1px solid rgba(33,37,41,.1);
   background-color: #fff;
@@ -40,18 +33,6 @@
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
   transition: all .2s;
-}
-
-.carousel-caption {
-  position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 140px !important;
-  color: #fff;
-  text-align: center;
 }
 
 .h3, h3{
@@ -125,6 +106,7 @@ font-size: 1.15rem;
 .py-5 {
   padding-bottom: 2rem!important;
   height: 10px;
+  padding-top: 0px !important;
 }
 
 .btn-primary {
@@ -161,7 +143,6 @@ p {
       border: 1px solid #0881d0;
       margin-top: 25px;
       margin-bottom: 20px;
-      margin-top: 70px;
       /* margin-left: 200px; */
 }
 
@@ -300,12 +281,12 @@ tr:nth-child(even){background-color: #f2f2f2}
 
   .content-info{
     background-color: #2484c1;
-    width: 331px;
-    height: 145px;
+    width: 350px;
+    height: 130px;
     border-radius: 10px;
     font-size: 17px;
     padding: 15px;
-    margin-left: 30px;
+    margin-left: 15px;
     float: left;
     color: white;
     font-family: -webkit-pictograph;
@@ -314,7 +295,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   .info-text{
     text-align: right;
     padding-bottom: 10px;
-    color: #bd5412;
-    font-size: 14px;
+    color: green;
+    font-size: 17px;
   }
   

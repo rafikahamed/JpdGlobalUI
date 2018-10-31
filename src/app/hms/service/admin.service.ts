@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const baseUrl = "http://13.210.14.61:8080/v1/logistics"
-//const oldBaseUrl = "http://18.216.201.118:8080/v1/logistics";
+const baseUrl = "https://www.jpdglobal.com.au/v1/logistics"
 // const baseUrl = "http://localhost:8080/v1/logistics";
 @Injectable()
 export class AdminService {
@@ -13,9 +12,7 @@ export class AdminService {
   constructor(
     private http: HttpClient, 
     private router: Router
-  ) {
-
-  }
+  ){}
 
   arnRegistration( arnObject, fileName, callback): any {
     console.log(arnObject)
@@ -52,12 +49,27 @@ export class AdminService {
         );
         arnlist.push(arnObj)
     }
-    console.log(arnlist);
+
     this.http.post(baseUrl+'/arnRegistration',arnlist
     ).subscribe((resp:ArnRegister) => {
       callback(resp);
       if (resp) {
         this.arnRegister = resp;
+      } else {
+        console.error("Not Found!")
+      }
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
+  adminLogin( loginObject, callback): any {
+    this.http.get(baseUrl+'/adminLogin', {
+      params: { userName: loginObject.userName, passWord: loginObject.passWord  }
+    }).subscribe((resp:userMessage) => {
+      callback(resp);
+      if (resp) {
+        this.userMessage = resp;
       } else {
         console.error("Not Found!")
       }
@@ -75,6 +87,15 @@ export class AdminService {
       } else {
         console.error("Not Found!")
       }
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
+  adminDownLoad(callback): any {
+    this.http.get(baseUrl+'/adminDownload'
+    ).subscribe((resp:ArnRegister) => {
+      callback(resp);
     }, (error) => {
       console.error(error);
     });

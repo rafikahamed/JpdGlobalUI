@@ -2,11 +2,11 @@ import { Component, ElementRef, ViewChild, OnInit, Injectable} from '@angular/co
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'hms-home',
-  templateUrl: './terms-services.component.html',
-  styleUrls: ['./terms-services.component.css']
+  selector: 'hms-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.css']
 })
-export class TermsServiceComponent implements OnInit {
+export class ArticleComponent implements OnInit {
   
   constructor(
     

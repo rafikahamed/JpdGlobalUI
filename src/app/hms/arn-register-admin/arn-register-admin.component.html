@@ -53,7 +53,7 @@
                                                                                 <th>Post Code</th>
                                                                                 <th>Postal Address</th>
                                                                                 <th>SubUrb</th>
-                                                                                <th>TAN Number</th>
+                                                                                <th>TIN Number</th>
                                                                                 <th>Website Name</th>
                                                                         </tr>
                                                                 </thead>
@@ -221,40 +221,40 @@
                         </mat-tab>
                                           
                         <mat-tab label="Download outstanding GST report">
-                                        <div style="height: 630px;">
+                                        <div style="height: 630px">
                                                 <div style="padding: 30px;">
-                                                    <div style="font-weight: 500;"> 
-                                                       Please select the below Option to download the report :
+                                                    <div style="font-weight: 400;"> 
+                                                       Please click the below Option to download the GST Report :
                                                     </div>
                                                 </div>
 
-                                                <div style="margin-left: 500px; float:left; margin-bottom:30px">
-                                                    <button class="btn btn-info" (click)="downLoad()"
+                                                <div style="margin-left: 30px; float:left; margin-bottom:30px">
+                                                    <button class="btn btn-info" (click)="adminDownLoad()"
                                                     style="background-color: #0671b7;">
                                                             Outstanding GST report 
                                                     </button>         
                                                 </div>
                                         
-                                                <div class="table-wrap-upload">
+                                                <div class="table-wrap-upload" style="padding:30px">
                                                     <table style="width: 100%;border:1px solid #ccc; border: 1px solid #ccc; margin-top: 20px;">
                                                         <thead>
                                                             <tr>
                                                                 <th>Serial.No</th>
+                                                                <th>User Code</th>
                                                                 <th>Company Name</th>
-                                                                <th>ARN Number (User code)</th>
-                                                                <th>Total Sales (Sum of goods value for that company)</th>
-                                                                <th>Total GST Payable (Sum of GST for that company including imports and exports)</th>
-                                                                <th>GST Excluded Sales (Sum of GST excluded goods value for that company)</th>
+                                                                <th>Total Sales (AUD)</th>
+                                                                <th>Total GST Payable (AUD)</th>
+                                                                <th>GST Excluded Sales (AUD)</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <tr *ngFor="let file of downloadData;let i = index">
+                                                                <tr *ngFor="let file of adminDetails;let i = index">
                                                                     <td>{{i+1}}</td>
-                                                                    <td>{{file.userCode}}</td>
-                                                                    <td>{{file.gst_eligible}}</td>
-                                                                    <td>{{file.referenceNo}}</td>
-                                                                    <td>{{file.currencyCode}}</td>   
-                                                                    <td>{{file.audConvertedAmount}}</td>                                             
+                                                                    <td>{{file.user_code}}</td>
+                                                                    <td>{{file.company_name}}</td>
+                                                                    <td>{{file.total_sales_in_AUD}}</td>
+                                                                    <td>{{file.gst_payable}}</td>
+                                                                    <td>{{file.total_GST_Exclude_sales_in_AUD}}</td>                                            
                                                                 </tr>
                                                         </tbody>
                                                 </table>

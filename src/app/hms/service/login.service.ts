@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { environment } from 'environments/environment';
 
-const baseUrl = "http://13.210.14.61:8080/v1/logistics";
+const baseUrl = "https://www.jpdglobal.com.au/v1/logistics";
 // const baseUrl = "http://localhost:8080/v1/logistics";
 @Injectable()
 export class LoginService implements OnInit{

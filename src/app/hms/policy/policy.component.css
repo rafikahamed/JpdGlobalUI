@@ -39,13 +39,14 @@ body {
   color: black;
 }
 
-.h4, h4{
-  font-size: 1.2rem !important;
-  font-weight: 600;
+.h5, h5{
+  font-size: 1.75rem !important;
+  font-weight: 500;
+  color: black;
 }
 
-.h5, h5{
-  font-size: 1.1rem !important;
+.h4, h4{
+  font-size: 1rem !important;
   font-weight: 400;
 }
 
@@ -104,6 +105,13 @@ a {
   color: white;
 }
 
+.h5, h5 {
+  font-size: 1rem;
+}
+
+.h4, h4 {
+  font-size: 1.9rem;
+}
 .py-5 {
   padding-top: 0rem!important;
   padding-bottom: 2rem!important;

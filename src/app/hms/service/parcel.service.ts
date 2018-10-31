@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 
-const baseUrl = "http://13.210.14.61:8080/v1/logistics";
+const baseUrl = "https://www.jpdglobal.com.au/v1/logistics";
 // const baseUrl = "http://localhost:8080/v1/logistics";
 @Injectable()
 export class ParcelService {
@@ -57,8 +57,6 @@ export class ParcelService {
           );
           importList.push(importObj)
       }
-      console.log(importList);
-    
     this.http.post(baseUrl+'/import',importList
     ).subscribe((resp:FileData) => {
       callback(resp);
