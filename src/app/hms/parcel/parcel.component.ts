@@ -378,6 +378,7 @@ export class ParcelComponent implements OnInit{
       }
   }
 
+
 }
 
 export interface File_Data {
